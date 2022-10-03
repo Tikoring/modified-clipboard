@@ -1,0 +1,150 @@
+{
+  	"publisher": "Tiko",
+	"name": "modified-clipboard",
+	"displayName": "Modified Clipboard",
+	"description": "Simply Clipboard with modifying",
+	"version": "1.1.1",
+	"engines": {
+		"vscode": "^1.68.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"modified-clipboard",
+		"copy",
+		"cut",
+		"paste",
+		"history"
+	],
+	"activationEvents": [
+		"onCommand:modified-clipboard.copy",
+		"onCommand:modified-clipboard.cut",
+		"onCommand:modified-clipboard.pasteFromClipboard",
+		"onView:modified-clipboard.history"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "modified-clipboard-history",
+					"title": "Modified Clipboard history",
+					"icon": "resources/clipboard-icon.png"
+				}
+			]
+		},
+		"views": {
+			"modified-clipboard-history": [
+				{
+					"id": "modified-clipboard.history",
+					"name": "Modified Clipboard History"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "modified-clipboard.history.modify",
+				"title": "Modify",
+				"icon": {
+					"dark": "resources/dark/modify.png",
+					"light": "resources/light/modify.png"
+				}
+			},{
+				"command": "modified-clipboard.history.copy",
+				"title": "Copy",
+				"icon": {
+					"dark": "resources/dark/copy.png",
+					"light": "resources/light/copy.png"
+				}
+			}, {
+				"command": "modified-clipboard.history.remove",
+				"title": "Remove",
+				"icon": {
+					"dark": "resources/dark/remove.png",
+					"light": "resources/light/remove.png"
+				}
+			}, {
+				"command": "modified-clipboard.copy",
+				"title": "copy lsh.modified-clipboard"
+			}, {
+				"command": "modified-clipboard.cut",
+				"title": "cut lsh.modified-clipboard"
+			}, {
+				"command": "modified-clipboard.paste",
+				"title": "paste lsh.modified-clipboard"
+			}
+		],
+		"keybindings":[
+			{
+				"command": "modified-clipboard.copy",
+				"key": "ctrl+c",
+				"mac": "cmd+c",
+				"when": "editorTextFocus"
+			}, {
+				"command": "modified-clipboard.cut",
+				"key": "ctrl+x",
+				"mac": "cmd+x",
+				"when": "editorTextFocus"
+			}, {
+				"command": "modified-clipboard.pasteFromClipboard",
+				"key": "ctrl+shift+v",
+				"mac": "cmd+shift+v",
+				"when": "editorTextFocus"
+			}
+		],
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "modified-clipboard.history.modify",
+					"group": "inline"
+				}, {
+					"command": "modified-clipboard.history.copy",
+					"group": "inline"
+				}, {
+					"command": "modified-clipboard.history.remove",
+					"group": "inline"
+				}, {
+					"command": "modified-clipboard.history.remove",
+					"group": "1_modification"
+				}, {
+					"command": "modified-clipboard.history.modify",
+					"group": "1_modification"
+				}
+			]
+		},
+		"configuration":[
+			{
+				"title": "Modified Clipboard",
+				"properties": {
+					"modified-clipboard.history": {
+						"type": "integer",
+						"default": 200,
+						"description": "Maximum number of clips to save"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.68.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"eslint": "^8.16.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.7.2",
+		"@vscode/test-electron": "^2.1.3"
+	}
+}
