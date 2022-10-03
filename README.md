@@ -20,13 +20,13 @@ normal cut
 2. hover clipboard item that you want copy.
 3. click copy button.
 
-![Alt Text] (resources/paste-first.gif)
+![Alt Text](resources/paste-first.gif)
 
 #### Second
 1. open QuickPick with `shift + ctrl + v` or `shift + command + v`
 2. select you want copy.
 
-![Alt Text] (resources/paste-second.gif)
+![Alt Text](resources/paste-second.gif)
 
 ### Modify
 1. open clipboard sidebar.
@@ -37,4 +37,4 @@ normal cut
 ![Alt Text](resources/modify.gif)
 
 ## Extension Settings
-![Alt Text](resources/configuration.png)
+![Alt Text](resources/configuration.PNG)
