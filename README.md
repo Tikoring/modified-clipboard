@@ -34,7 +34,7 @@ normal cut
 3. click modify button.
 4. modifying text
 
-![Alt Text] (resources/modify.gif)
+![Alt Text](resources/modify.gif)
 
 ## Extension Settings
-![Alt Text] (resources/configuration.png)
+![Alt Text](resources/configuration.png)
